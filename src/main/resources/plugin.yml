@@ -1,0 +1,8 @@
+name: Man10Translate
+version: 1.0
+main: man10translate.man10translate.MT
+api-version: 1.17
+
+commands:
+  mtranslate:
+  mtranslateconfig:
