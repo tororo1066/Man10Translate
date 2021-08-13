@@ -1,60 +1,31 @@
 
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# このプラグインについて
  
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
+このプラグインは翻訳ができるプラグインです  
+Google Apps Scriptを使用してます
  
-"hoge"が何かを簡潔に紹介する
  
-# DEMO
+# 翻訳ができなくなってしまったら
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
- 
-# Features
- 
-"hoge"のセールスポイントや差別化などを説明する
- 
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
+1.まず[GoogleDrive](https://drive.google.com/drive/my-drive?hl=ja)にアクセスします(ログイン必須)  
+2.左の新規をクリックします  
+<img src="https://user-images.githubusercontent.com/71592738/129329230-3dd1025d-73f9-43df-b452-7b803a0c3844.png" width="200px">  
+3.その他からGoogle Apps Scriptを選択します  
+<img src="https://user-images.githubusercontent.com/71592738/129330077-b267b27c-78a8-4aca-98b4-513ac010c816.png" width="400px">  
+4.この画面にこれをコピペします  
+<img src="https://user-images.githubusercontent.com/71592738/129330494-c8b4b0ba-ea6c-44f9-953b-7fbc13ae1c34.png" width="400px">  
 ```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
- 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
- 
-# Note
- 
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+function doGet(e)
+{
+ var p = e.parameter;
+ var translatedText = LanguageApp.translate(p.text, "", p.target);
+ return ContentService.createTextOutput(translatedText);
+}
+```  
+5.【公開】を選択し、ウェブアプリケーションとして導入を選択します 名前は適当でいいです   
+<img src="https://user-images.githubusercontent.com/71592738/129331280-355380be-2c45-4b6e-a914-01914dfcf47e.png" width="300px">  
+6.このように設定し、更新を押します  
+<img src="https://user-images.githubusercontent.com/71592738/129331810-d04e05b6-1e8c-422a-829d-f569bb37a66a.png" width="300px">  
+7.このURLをコピーし、**サーバーで**/mtranslateconfig 【URL】と入力します  
+<img src="https://user-images.githubusercontent.com/71592738/129332171-4823ed4a-e5ae-42f9-b46d-de4553920283.png" width="300px">  
+これで完成です
